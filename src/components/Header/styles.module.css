@@ -1,0 +1,64 @@
+.header{
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  background-color: var(--gray-700);
+  height: 200px;
+}
+
+.inputTaks{
+  position: absolute;
+  bottom: -14%;
+  display: grid;
+  grid-template-columns: 638px .5fr;
+}
+.inputTaks input{
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--gray-300);
+  border: 1px solid var(--gray-700);
+  background-color: var(--gray-500);
+}
+
+.inputTaks button[type="submit"] {
+  margin-left: 8px;
+  color: var(--gray-100);
+  background-color:var(--blue-800);
+  border:0;
+  padding: 1rem;
+  border-radius:8px;
+  font-weight: bold;
+  
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 1s;
+}
+
+.inputTaks button[type="submit"] svg{
+  margin-left: .5rem;
+}
+.inputTaks button[type="submit"]:hover{
+  background-color: var(--blue-500);
+}
+
+@media(max-width: 752px){
+  .inputTaks{
+    grid-template-columns: 2fr .5fr;
+  } 
+}
+@media(max-width: 390px){
+  .inputTaks{
+    bottom: -30%;
+    display: flex;
+    flex-direction: column;
+  } 
+}

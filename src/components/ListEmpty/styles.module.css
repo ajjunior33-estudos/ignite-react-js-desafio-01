@@ -1,0 +1,14 @@
+.listEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: cneter;
+  align-items: center;
+  margin-top: 4rem;
+
+  font-size: 1rem;
+  color:var(--gray-300);
+}
+
+.listEmpty img{
+  margin-bottom: 1rem;
+}
