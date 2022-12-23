@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { reorderByStatusTasks } from '../../Utils/reorderByStatusTasks';
 import { ListEmptyComponent } from '../ListEmpty';
 import { TaskComponent } from '../TaskComponent';
@@ -15,6 +16,14 @@ interface ListTasksProps {
 }
 
 export function ListTasksComponent({ listTasks, onChangeListTasks }: ListTasksProps) {
+
+  const [tasksChecekd, setTasksChecked] = useState<number>(0);
+  useEffect(() => {
+
+    const qtdChecked = listTasks.filter((task) => task.checked === true);
+    setTasksChecked(qtdChecked.length)
+
+  },[listTasks])
   function onDeleteTask(taskIDDelete: string) {
     const taskWithoutDeletedOne = listTasks.filter((task) => {
       return task.id !== taskIDDelete;
@@ -38,11 +47,11 @@ export function ListTasksComponent({ listTasks, onChangeListTasks }: ListTasksPr
       <header>
         <div className={styles.countCreated}>
           <strong>Tarefas Criadas</strong>
-          <span>0</span>
+          <span>{listTasks.length}</span>
         </div>
         <div className={styles.countCheckeds}>
           <strong>Concluídas</strong>
-          <span>0</span>
+          <span>{tasksChecekd} de {listTasks.length}</span>
         </div>
       </header>
       <main>
